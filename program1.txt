@@ -1,0 +1,50 @@
+import java.util.*;
+import java.io.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+interface RainfallCalculator {
+
+  void captureRain(Float measure, Date rainDate, String pincode);
+  
+
+  RainfallRegion getRegionWithMaxRainfall(Date fromDate, Date toDate);
+  
+ 
+  RainfallRegion getRegionWithMinRainfall(Date fromDate, Date toDate);
+
+  Float getAverageRainfall(Date fromDate, Date fromDate);
+}
+class rainfall implements RainfallCalculator
+{
+     String pincode;
+     Date from;
+     Date to;
+     Float measure;
+rainfall(  String pincode,int from,int to,Float measure){
+this.pincode=pincode;
+this.from=from;
+this.to=to;
+this.measure=measure;}
+
+public static void main(String[] args)
+{ 
+int pin1=641606,pin2=641604,pin3=641607,pin4=641602;
+int from1=20,from2=24,from3=25,from4=20;
+int to1=21,to2=25,to3=28,to4=21;
+Float measure1=20,measure2=30,measure3=40,measure4=50;
+   rainfall[] region = new region[4];
+region[0] =new rainfall(pin1,from1,to1,measure1);region[2] =new rainfall(pin3,from3,to13,measure3);
+region[1] =new rainfall(pin2,from2,to2,measure2);region[3] =new rainfall(pin1,from1,to4,measure4);
+int max=region[0].measure;
+int min=region[0].measure; 
+for(int i=0;i<4;i++)
+{
+if(max<region[i].measure) max=region[i].measure;
+if(min>region[i].measure) max=region[i].measure;
+}
+System.out.println("Maximum rainfall cm value is "+max+"   \n);
+System.out.println("Minimum rainfall cm value is "+min+"   \n);
+
+
+}
+}
